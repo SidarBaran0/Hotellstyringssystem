@@ -1,4 +1,4 @@
-# 🏨 Hotellstyringssystem – DAT154-OBLIG4
+# 🏨 Hotellstyringssystem 
 Et hotelladministrasjonssystem utviklet i .NET, Blazor og MAUI. Systemet håndterer rombooking, kundeadministrasjon og rengjøringsstatus.
 
 ## 🚀 Applikasjoner
