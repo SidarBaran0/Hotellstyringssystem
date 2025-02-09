@@ -1,41 +1,49 @@
-# DAT154-OBLIG4
+# 🏨 Hotellstyringssystem – DAT154-OBLIG4
+Et hotelladministrasjonssystem utviklet i .NET, Blazor og MAUI. Systemet håndterer rombooking, kundeadministrasjon og rengjøringsstatus.
 
-## Applikasjoner
+## 🚀 Applikasjoner
+Prosjektet består av flere applikasjoner:
 
-### DesktopApp for Front Desk
+### **🖥️ DesktopApp for Front Desk**
+- Lages med **WPF**.
+- Bruker **DatabaseLibrary** for å hente data fra databasen.
+- Håndterer innsjekk og utsjekk.
 
-Lages med WPF. Bruker DatabaseLibrary for å hente data fra databasen.
+### **🌍 WebApp for Booking**
+- Lages med **Blazor**.
+- Lar kunder søke etter og bestille rom.
+- Bruker **DatabaseLibrary** for å hente data.
 
-### WebApp for Booking
+### **📱 App for Cleaning Personell**
+- Lages med **.NET MAUI**.
+- Viser rengjøringspersonell hvilke rom som trenger vedlikehold.
+- Oppdaterer rengjøringsstatus i databasen.
 
-Lages med Blazor. Bruker DatabaseLibrary for å hente data fra databasen.
+### **🗄️ DatabaseLibrary**
+- Inneholder klasser for databasekommunikasjon.
+- Bruker **Entity Framework Core** og scaffolding for å generere modellklasser.
 
-### App for Cleaning Personell
+---
 
-Lages med MAUI. Bruker DatabaseLibrary for å hente data fra databasen.
+## 📊 Database
+Systemet bruker følgende databasetabeller:
 
-### DatabaseLibrary
+### **🛏️ Romdata**
+| id  | kvalitet  | antall_senger |
+|----|----------|--------------|
+| PK  | String   | Integer      |
 
-Klasser for å hente data fra databasen.
-Bruker Entity Framework Core og scaffolding for å generere klassene.
+### **📅 Bookingdata**
+| id  | rom_id (FK) | startdato | sluttdato | antall_personer |
+|----|------------|----------|----------|----------------|
+| PK  | FK til Romdata | Date | Date | Integer |
 
-## Database
+### **💰 Prisdata**
+| kvalitet (PK, FK) | pris |
+|------------------|------|
+| String | Float |
 
-Tabell med romdata:
-
-`id | kvalitet | antall_senger`
-id er PK
-
-Tabell med bookingdata:
-
-`id | rom_id | startdato | sluttdato | antall_personer`
-id er PK, rom_id er FK fra romdata
-
-Tabell med prisdata:
-
-`kvalitet | pris`
-kvalitet blir PK og FK i romdata
-
-Tabell med kunde-brukere:
-
-`id | navn | telefon | epost | passord_hash | passord_salt`
+### **👤 Kunde-brukere**
+| id  | navn | telefon | epost | passord_hash | passord_salt |
+|----|------|--------|------|--------------|-------------|
+| PK  | String | String | String | Hashed String | Salted String |
